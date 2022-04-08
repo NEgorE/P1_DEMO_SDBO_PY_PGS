@@ -6,6 +6,7 @@
             <schema name='dbo'>
                 <table name='CSV_SER_SPR'></table>
                 <table name='CSV_SYSTEM'></table>
+                <table name='CSV_CAL'></table>
             </schema>
         </DB>
     </sourse>
