@@ -9,18 +9,15 @@ class DBCURSORclass :
         self.connection = None
         self.cursor = None
         self.db_connect()
-        self.db_cursor()
 
     def db_connect(self) :
         try:
             self.connection = pyodbc.connect(self.cred, autocommit=True)
             print(f'Connection success to {self.type} DB: {self.cred}')
+            self.cursor = self.connection.cursor()
         except (Exception, Error) as error:
             print(f"Error connection to {self.type} !!! Error - {error}") 
-            sys.exit()
-    
-    def db_cursor(self):
-        self.cursor = self.connection.cursor()
+            sys.exit()        
 
     def db_exec_q(self, query) :
         try:

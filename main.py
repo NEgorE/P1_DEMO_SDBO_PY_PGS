@@ -62,6 +62,7 @@ def main():
 
                     for table in schema :
                         cur_table = table.attrib['name']
+                        print(f'Create and load table {cur_table}')
 
                         query_info_table = wqc.WRITEQUERYclass()
                         query_info_table.w_query_info_table(cur_db, cur_schema, cur_table)
@@ -73,12 +74,11 @@ def main():
 
                         query_select_data = wqc.WRITEQUERYclass()
                         query_select_data.w_query_select_data(cur_db, cur_schema, cur_table)
-                        print(query_select_data.query)
                         cur_source_cursor.db_exec_q(query_select_data.query)
 
                         query_insert_data = wqc.WRITEQUERYclass()
                         query_insert_data.w_query_insert_data(cur_db, cur_schema, cur_table)
-                        print(query_insert_data.query)
+                        pack_cur = 0
                         for row_data in cur_source_cursor.cursor :
                             pack_cur+=1
                             row_data = str(row_data).replace(u'\\xa0', ' ')
@@ -98,17 +98,5 @@ def main():
                             cur_target_cursor.db_exec_q(query_insert_data_ex)
                             pack_ex=0
 
-
-
-
-
-
-
-
-        
-    
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     main()
