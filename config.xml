@@ -1,18 +1,18 @@
 <information name='Information'>
     <sourse name='MS_SQL' type='SQL Server'>
         <cred>Driver={SQL Server};Server=DESKTOP-NOR5JCO\SQLSERVER2019;UID=for_py1;PWD=for_py1;</cred>
-        <target db_default='postgres'>DRIVER={PostgreSQL Unicode};Server=localhost;port=5432;UID=for_py1;PWD=for_py1;</target>
+        <target db_default='postgres'>DRIVER={PostgreSQL Unicode};Server=178.124.154.86;port=5433;UID=a2user;PWD=P@$$w0rd;</target>
         <DB name='db_demo_sdbo'>
-            <schema name='dbo'>  
+            <schema name='dbo'> 
                 <table name='CSV_CAL'></table>
-                <!--<table name='CSV_SESSION'></table>
+                <table name='CSV_SESSION'></table>
                 <table name='CSV_SYSTEM'></table>     
                 <table name='CSV_CLIENT'></table>   
                 <table name='CSV_COMMENT'></table>  
                 <table name='CSV_SER_SPR'></table> 
                 <table name='CSV_SERVICE'></table>
                 <table name='CSV_TIME_MAP'></table> 
-                <table name='CSV_USER'></table>-->
+                <table name='CSV_USER'></table>
             </schema>
         </DB>
     </sourse>

@@ -54,7 +54,6 @@ class WRITEQUERYclass :
         self.cur_schema = cur_schema
         self.cur_table = cur_table
         self.query = f'Select * from {self.cur_db}.{self.cur_schema}.{self.cur_table};'
-        #q_insert_data_empty = 'Insert into %(db_name)s.%(s_name)s.%(t_name)s values'
 
     def w_query_insert_data(self, cur_db, cur_schema, cur_table) :
         self.cur_db = cur_db
