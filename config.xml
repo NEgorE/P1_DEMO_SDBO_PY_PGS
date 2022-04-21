@@ -1,7 +1,7 @@
 <information name='Information'>
     <sourse name='MS_SQL' type='SQL Server'>
         <cred>Driver={SQL Server};Server=DESKTOP-NOR5JCO\SQLSERVER2019;UID=for_py1;PWD=for_py1;</cred>
-        <target db_default='postgres'>DRIVER={PostgreSQL Unicode};Server=178.124.154xxx;port=5433;UID=a2user;PWD=xxxxx;</target>
+        <target db_default='postgres'>DRIVER={PostgreSQL Unicode};Server=localhost;port=5432;UID=for_py1;PWD=for_py1;</target>
         <DB name='db_demo_sdbo'>
             <schema name='dbo'> 
                 <table name='CSV_CAL'></table>
