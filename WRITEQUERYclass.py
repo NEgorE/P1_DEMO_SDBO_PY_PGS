@@ -5,6 +5,7 @@ class WRITEQUERYclass :
         self.cur_table = None
 
         self.query = None
+        self.quey_type = None
 
         self.dt_dict = {
             'int' : 'integer',
@@ -35,25 +36,27 @@ class WRITEQUERYclass :
         self.cur_db = cur_db
         self.cur_schema = cur_schema
         self.cur_table = cur_table
-        self.query=f'CREATE TABLE {self.cur_db}.{self.cur_schema}.{self.cur_table} ('
+        self.query = f'CREATE TABLE {self.cur_db}.{self.cur_schema}.{self.cur_table} ('
         x = 1
         for i in cursor:
-            f_len=''
+            f_len = ''
             if x > 1 :
                 self.query += ','
-            
-            self.query = self.query + '\n' + i.COLUMN_NAME + ' ' + self.dt_dict[i.DATA_TYPE]
+            self.query += f'\n{i.COLUMN_NAME} {self.dt_dict[i.DATA_TYPE]}'
             if i.CHARACTER_MAXIMUM_LENGTH != None :
-                f_len = f_len + '('+ str(i.CHARACTER_MAXIMUM_LENGTH) + ')' 
-            self.query = self.query + f_len
+                f_len += f'({str(i.CHARACTER_MAXIMUM_LENGTH)})' 
+            self.query += f_len
             x += 1
-        self.query = self.query + '\n);'
+        self.query += '\n);'
     
-    def w_query_select_data(self, cur_db, cur_schema, cur_table) :
+    def w_query_select_data(self, cur_db, cur_schema, cur_table, sel_top) :
         self.cur_db = cur_db
         self.cur_schema = cur_schema
         self.cur_table = cur_table
-        self.query = f'Select * from {self.cur_db}.{self.cur_schema}.{self.cur_table};'
+        if sel_top == -1 :
+            self.query = f'Select * from {self.cur_db}.{self.cur_schema}.{self.cur_table};'
+        else :
+            self.query = f'Select top {sel_top} * from {self.cur_db}.{self.cur_schema}.{self.cur_table};'
 
     def w_query_insert_data(self, cur_db, cur_schema, cur_table) :
         self.cur_db = cur_db
