@@ -25,6 +25,7 @@ class DBCURSORclass :
     def db_exec_q(self, query) :
         self.cur_time = str(dt.now().time())[0:13]
         try:
+            
             self.cursor.execute(query)
         except (Exception, Error) as error:
             print(f"{self.cur_time}: Error exec query !!! Error - {error}") 
