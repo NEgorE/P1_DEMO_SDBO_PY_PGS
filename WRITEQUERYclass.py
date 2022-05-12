@@ -48,7 +48,13 @@ class WRITEQUERYclass :
         self.cur_db = cur_db
         self.cur_schema = cur_schema
         self.cur_table = cur_table
-        self.query = f'''SELECT c.COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE, COLUMN_DEFAULT, CONSTRAINT_TYPE
+        self.query = f'''SELECT 
+                    c.COLUMN_NAME as column_name, 
+                    DATA_TYPE as data_type, 
+                    CHARACTER_MAXIMUM_LENGTH as character_maximum_length, 
+                    IS_NULLABLE as is_nullable, 
+                    COLUMN_DEFAULT as column_default, 
+                    CONSTRAINT_TYPE as constraint_type
                 FROM {self.cur_db}.INFORMATION_SCHEMA.COLUMNS c
                 left join {self.cur_db}.INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE ccu on ccu.TABLE_SCHEMA = c.TABLE_SCHEMA and ccu.TABLE_NAME=c.TABLE_NAME and ccu.COLUMN_NAME=c.COLUMN_NAME
                 left join {self.cur_db}.INFORMATION_SCHEMA.TABLE_CONSTRAINTS tc on tc.CONSTRAINT_NAME=ccu.CONSTRAINT_NAME
