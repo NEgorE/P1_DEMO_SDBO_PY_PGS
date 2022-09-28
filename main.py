@@ -42,8 +42,8 @@ def main():
             cur_db = db.attrib["name"].lower()
             cur_time = str(dt.now().time())[0:13]
             print(f'{cur_time}: Create DB {cur_db}')
-            cur_source_cred = f"{sourse.attrib['cred']}Database={cur_db}"
-            cur_target_cred = f"{sourse.attrib['target']}Database="
+            cur_source_cred = f"{sourse.attrib['cred']}database={cur_db}"
+            cur_target_cred = f"{sourse.attrib['target']}database="
             cur_target_cred_def = cur_target_cred + f'{sourse.attrib["db_target_default"]}'
             cur_source_cursor = dbc.DBCURSORclass(cur_source_cred, 'source')
             cur_target_cursor_def = dbc.DBCURSORclass(cur_target_cred_def, 'target')
